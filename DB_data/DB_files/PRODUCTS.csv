@@ -1,0 +1,101 @@
+"ID";"NAME";"UNIT";"PRICE_PER_UNIT"
+101;"Rice";1;40
+102;"Wheat Flour";1;30
+103;"Sugar";1;35
+104;"Salt";1;10
+105;"Turmeric Powder";2;20
+106;"Red Chili Powder";2;25
+107;"Coriander Powder";2;20
+108;"Cumin Seeds";2;30
+109;"Ginger";1;80
+110;"Garlic";1;60
+111;"Onions";1;30
+112;"Potatoes";1;25
+113;"Tomatoes";1;40
+114;"Green Chilies";1;50
+115;"Carrots";1;40
+116;"Cauliflower";1;50
+117;"Cabbage";1;30
+118;"Spinach";1;20
+119;"Brinjal (Eggplant)";1;40
+120;"Capsicum";1;50
+121;"Apple";1;120
+122;"Banana";2;60
+123;"Orange";1;100
+124;"Pineapple";1;70
+125;"Mango";1;150
+126;"Grapes";1;90
+127;"Papaya";1;30
+128;"Coconut";2;60
+129;"Milk";2;50
+130;"Curd";2;40
+131;"Paneer";1;200
+132;"Butter";1;150
+133;"Cheese";1;250
+134;"Eggs";2;70
+135;"Chicken (whole)";1;300
+136;"Mutton";1;600
+137;"Fish";1;400
+138;"Pulses (Dal)";1;90
+139;"Chickpeas (Chana)";1;100
+140;"Lentils";1;90
+141;"Soybeans";1;80
+142;"Peanuts";1;120
+143;"Almonds";1;800
+144;"Cashews";1;900
+145;"Walnuts";1;1000
+146;"Raisins";1;400
+147;"Basmati Rice";1;80
+148;"Sona Masoori Rice";1;60
+149;"Masoor Dal";1;80
+150;"Toor Dal";1;90
+151;"Moong Dal";1;100
+152;"Puffed Rice";2;40
+153;"Sooji (Semolina)";1;50
+154;"Besan (Gram Flour)";1;50
+155;"Ghee";1;600
+156;"Cooking Oil";2;150
+157;"Mustard Oil";2;160
+158;"Coconut Oil";2;200
+159;"Vinegar";2;30
+160;"Soy Sauce";2;100
+161;"Ketchup";2;50
+162;"Mayonnaise";2;80
+163;"Pickles";2;60
+164;"Chutney";2;50
+165;"Pasta";2;70
+166;"Noodles";2;40
+167;"Bread";2;40
+168;"Roti (Chapati)";2;10
+169;"Puri";2;20
+170;"Dhokla Mix";1;60
+171;"Dosa Batter";1;50
+172;"Idli Batter";1;50
+173;"Pani Puri Mix";1;40
+174;"Chikki (Peanut Brittle)";2;20
+175;"Chocolate";2;50
+176;"Ice Cream";2;100
+177;"Soft Drinks";2;30
+178;"Fruit Juice";2;40
+179;"Tea";1;200
+180;"Coffee";1;400
+181;"Honey";1;300
+182;"Jaggery";1;50
+183;"Coconut Water";2;20
+184;"Fresh Herbs (Coriander)";1;20
+185;"Fresh Mint";1;20
+186;"Fresh Curry Leaves";1;10
+187;"Saffron";2;600
+188;"Black Pepper";2;300
+189;"Cloves";2;250
+190;"Cardamom";2;400
+191;"Cashew Nut Powder";2;200
+192;"Coconut Powder";2;100
+193;"Custard Powder";2;40
+194;"Baking Powder";2;30
+195;"Yeast";2;20
+196;"Gulab Jamun Mix";1;60
+197;"Pongal Mix";1;70
+198;"Puttu Mix";1;50
+199;"Biryani Masala";2;40
+200;"Chaat Masala";2;30
