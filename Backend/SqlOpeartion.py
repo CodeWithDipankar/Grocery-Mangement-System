@@ -7,15 +7,15 @@ class SQL:
     PASSWORD:str = os.getenv('PASSWORD')
     HOST:str = os.getenv('HOST')
     DATABASENAME:str = os.getenv('DATABASENAME')
-    
+
     def __init__(self):
         __conn__ = None
-    
+
     def SqlConn(self):
         if __conn__ is None:
             __conn__ = pymysql.connect(host=self.HOST, user=self.USERNAME, password=self.PASSWORD, database=self.DATABASENAME)
         return __conn__
-    
+
     def SqlInsertion(self, query):
         pass
 

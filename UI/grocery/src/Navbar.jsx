@@ -1,12 +1,14 @@
 import React from 'react';
-import './Navbar.css'; // Import the CSS for styling
+import './style/Navbar.css'; // Import the CSS for styling
+import logo from './static/logo-grocery.png'; // Make sure the path is correct
+
 
 const Navbar = () => {
     return(
         <nav class = 'navbar'>
             <div class = 'navbar-container'>
                 <div class = 'logo'>
-                    <img src="..\static\logo-grocery.jpg" alt="Grocery-image" />
+                    <img src={logo} alt="Grocery-image" />
                 </div>
                 <div class = 'nav-links'>
                     <a href="/">Home</a>
