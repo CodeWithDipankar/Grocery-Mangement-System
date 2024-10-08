@@ -1,0 +1,26 @@
+.navbar {
+    background-color: #333; /* Dark background color */
+    padding: 1rem; /* Padding for the navbar */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Center items vertically */
+}
+
+.logo h1 {
+    color: white; /* Logo color */
+    margin: 0; /* Remove default margin */
+}
+
+.nav-links a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline from links */
+    margin: 0 15px; /* Spacing between links */
+    font-weight: bold; /* Bold links */
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
