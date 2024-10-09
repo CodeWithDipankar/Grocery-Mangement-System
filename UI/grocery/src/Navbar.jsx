@@ -1,24 +1,25 @@
 import React from 'react';
-import './style/Navbar.css'; // Import the CSS for styling
 import logo from './static/logo-grocery.png'; // Make sure the path is correct
-
+import { Link } from 'react-router-dom'; // Import the Link component
 
 const Navbar = () => {
     return(
-        <nav class = 'navbar'>
-            <div class = 'navbar-container'>
-                <div class = 'logo'>
+        <nav className="navbar">
+            <div className="navbar-container">
+                <div className="logo">
                     <img src={logo} alt="Grocery-image" />
                 </div>
-                <div class = 'nav-links'>
-                    <a href="/">Home</a>
-                    <a href="/About">About</a>
-                    <a href="/Login">Login</a>
+                <div className="nav-links">
+                    {/* Use Link instead of a tags */}
+                    <Link to="/">Home</Link>
+                    <Link to="/about">About</Link>
+                    <Link to="/login">Login</Link>
                 </div>
             </div>
         </nav>
-    )
+    );
 }
 
 export default Navbar;
+
 
