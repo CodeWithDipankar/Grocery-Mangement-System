@@ -1,13 +1,11 @@
-
-/* App CSS */
 .App {
   position: relative;
   text-align: center;
   height: 100vh;
   width: 100%;
   display: flex;
-  justify-content: center;  /* Center horizontally */
-  align-items: center;      /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 .App::before {
@@ -17,60 +15,68 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url('../static/grocery-image.png');
+  background-image: url('../static/best-quality.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100%;
   background-position: center;
-  filter: blur(5px); /* Apply the blur effect */
+  filter: blur(3px);
   z-index: -1;
 }
 
 .text-container {
-  background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.6);
   padding: 20px 200px;
   border-radius: 5px;
   display: inline-block;
-  z-index: 1; /* Ensure text is above the background */
-  max-width: 80%; /* Optional: Limit the width */
+  z-index: 1;
+  max-width: 80%;
 }
 
-.text-container h1, .text-container p {
-  color: black; /* Keep the black text */
+.text-container h1,
+.text-container p {
+  color: black;
   font-weight: bold;
 }
 
-/* Navbar CSS */
-
 .navbar {
-  background-color: rgba(0, 0, 0, 0.6);/*#333; /* Dark background color */
-  padding: 1rem; /* Padding for the navbar */
-  position: fixed; /* Make the navbar fixed at the top */
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 1rem;
+  position: fixed;
   top: 0;
   left: 0;
   margin-top: 1%;
   margin-left: 1%;
-  width: 96%; /* Full-width navbar */
-  z-index: 100; /* Make sure it stays above other content */
+  width: 96%;
+  z-index: 100;
   border-radius: 5px;
 }
 
 .navbar-container {
   display: flex;
-  justify-content: space-between; /* Space between logo and links */
-  align-items: center; /* Center items vertically */
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo img{
-  height:50px;
+.logo img {
+  height: 50px;
 }
 
 .nav-links a {
-  color: white; /* Link color */
-  text-decoration: none; /* Remove underline from links */
-  margin: 0 15px; /* Spacing between links */
-  font-weight: bold; /* Bold links */
+  color: #333;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-links a:hover {
-  text-decoration: underline; /* Underline on hover */
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #000;
+}
+
+.nav-links a.active {
+  background-color: #000;
+  color: #fff;
 }
