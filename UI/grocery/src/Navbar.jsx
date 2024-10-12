@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './static/logo-grocery.png'; 
 import { NavLink } from 'react-router-dom';
+import Popup from './Login';
 
 const Navbar = () => {
+    const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const togglePopup = () => {
+    setIsPopupVisible(!isPopupVisible);
+  };
+
     return(
         <nav className="navbar">
             <div className="navbar-container">
@@ -21,11 +28,16 @@ const Navbar = () => {
                     <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
                         About
                     </NavLink>
-                    <NavLink to="/login" className={({ isActive }) => (isActive ? "active" : "")}>
+                    <NavLink to="/login" 
+                    className={({ isActive }) => (isActive ? "active" : "")}
+                    onClick={()=> togglePopup()} >
                         Login
                     </NavLink>
                 </div>
             </div>
+
+            <Popup isVisible={isPopupVisible} onClose={togglePopup}>
+            </Popup>
         </nav>
     );
 }
