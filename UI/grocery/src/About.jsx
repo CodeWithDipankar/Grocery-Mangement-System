@@ -1,8 +1,12 @@
-const About = () => (
-    <div className="text-container">
-      <h1>About Us</h1>
-      <p>This is the About page of the Grocery Management System.</p>
+import React from 'react';
+
+function About() {
+  return (
+    <div className="text-center">
+      <h1 className="display-4">About Us</h1>
+      <p className="lead">We are dedicated to providing the best grocery shopping experience.</p>
     </div>
   );
+}
 
-  export default About;
+export default About;

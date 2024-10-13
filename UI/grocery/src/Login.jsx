@@ -1,34 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Popup = ({ isVisible, onClose }) => {
-  if (!isVisible) return null;
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle login logic
+  };
 
   return (
-    <div className="popup">
-      <div className="popup-inner">
-        <h2>Login Form</h2>
-        <div>
-          <div>
-            <label>
-              Username:
-              <input type="text" name="username" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Password:
-              <input type="password" name="password" />
-            </label>
-          </div>
-          <div>
-            <button type="button">Submit</button>
-          </div>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <form onSubmit={handleSubmit} className="w-25">
+        <h2 className="text-center mb-4">Login</h2>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email address</label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
         </div>
-
-      </div>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="btn btn-primary w-100">Login</button>
+      </form>
     </div>
   );
-};
+}
 
-export default Popup;
-
+export default Login;

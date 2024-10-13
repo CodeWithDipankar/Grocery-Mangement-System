@@ -1,47 +1,31 @@
-import React, {useState} from 'react';
-import logo from './static/logo-grocery.png'; 
-import { NavLink } from 'react-router-dom';
-import Popup from './Login';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-const Navbar = () => {
-    const [isPopupVisible, setIsPopupVisible] = useState(false);
-
-  const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
-  };
-
-    return(
-        <nav className="navbar">
-            <div className="navbar-container">
-                <div className="logo">
-                    <img src={logo} alt="Grocery-image" />
-                </div>
-                <div className="nav-links">
-                    {/* Use Link instead of a tags
-                    <Link to="/">Home</Link>
-                    <Link to="/about">About</Link>
-                    <Link to="/login">Login</Link> */}
-
-                    <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
-                        Home
-                    </NavLink>
-                    <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
-                        About
-                    </NavLink>
-                    <NavLink to="/login" 
-                    className={({ isActive }) => (isActive ? "active" : "")}
-                    onClick={()=> togglePopup()} >
-                        Login
-                    </NavLink>
-                </div>
-            </div>
-
-            <Popup isVisible={isPopupVisible} onClose={togglePopup}>
-            </Popup>
-        </nav>
-    );
+function Navbar() {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">Grocery Store</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">Login</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }
 
 export default Navbar;
-
-
