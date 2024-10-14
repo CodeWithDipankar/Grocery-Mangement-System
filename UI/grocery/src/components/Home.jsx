@@ -1,5 +1,4 @@
 import React from 'react';
-import './style/All.css';  // Create this CSS file for custom styles
 
 function Home() {
   return (

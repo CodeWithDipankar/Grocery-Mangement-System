@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MyNavbar from './Navbar'; // Updated name to MyNavbar
-import Home from './Home';
-import About from './About';
-import Login from './Login';
+import MyNavbar from './components/Navbar'; // Updated name to MyNavbar
+import Home from './components/Home';
+import About from './components/About';
+import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
 
 function App() {
