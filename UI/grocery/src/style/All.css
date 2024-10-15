@@ -1,50 +1,35 @@
-.home-container {
-  position: relative;
-  background-image: url('https://example.com/your-image.jpg');  /* Replace with your image URL */
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+/* MyNavbar.css */
+
+.custom-navbar {
+  background-color: #6f42c1; /* Base purple color */
+  box-shadow: 0 0 15px rgba(111, 66, 193, 0.5); /* Glowing effect */
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);  /* Adds a dark overlay for better text visibility */
-  z-index: 1;
+.custom-navbar .nav-link {
+  color: white; /* Set link color to white */
 }
 
-.content {
-  z-index: 2;
+.custom-navbar .navbar-brand {
+  color: white; /* Set brand color to white */
 }
 
-.container {
-  z-index: 2;
+.custom-navbar .nav-link:hover {
+  color: #e8e8e8; /* Change color on hover */
 }
 
-.card {
-  margin-top: 20px;
-  transition: transform 0.3s ease;
+.custom-navbar .navbar-toggler {
+  border-color: white; /* Toggler border color */
 }
 
-.card:hover {
-  transform: scale(1.05);  /* Add some hover effect */
+/* Divider for separation */
+.navbar-divider {
+  width: 1px;
+  height: 30px; /* Height of the divider */
+  background-color: white; /* Color of the divider */
+  margin: 0 15px; /* Space around the divider */
 }
 
-.card-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.card-text {
-  font-size: 1.2rem;
-  color: #007bff;
+/* Dark mode styling to prevent navbar color change */
+.bg-dark {
+  background-color: #6f42c1 !important; /* Keep the purple color */
 }

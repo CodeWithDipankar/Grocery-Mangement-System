@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import './MyNavbar.css'; // Import custom CSS file
 
 function MyNavbar() {
   const [darkMode, setDarkMode] = useState(false);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    if (!darkMode) {
+  const toggleDarkMode = (mode) => {
+    setDarkMode(mode);
+    if (mode) {
       document.body.classList.add('bg-dark', 'text-light');
     } else {
       document.body.classList.remove('bg-dark', 'text-light');
@@ -17,7 +18,7 @@ function MyNavbar() {
   };
 
   return (
-    <Navbar bg={darkMode ? "dark" : "light"} variant={darkMode ? "dark" : "light"} expand="lg" className="shadow-sm">
+    <Navbar className={`custom-navbar`} expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
           Grocery Booking
@@ -28,10 +29,19 @@ function MyNavbar() {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/about">About</Nav.Link>
             <Nav.Link as={Link} to="/login">Login</Nav.Link>
+            
+            {/* Divider for separation */}
+            <div className="navbar-divider"></div>
+            
+            <NavDropdown title={<FontAwesomeIcon icon={darkMode ? faSun : faMoon} size="lg" />} id="dark-mode-dropdown">
+              <NavDropdown.Item onClick={() => toggleDarkMode(true)}>
+                <FontAwesomeIcon icon={faSun} /> Light Mode
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => toggleDarkMode(false)}>
+                <FontAwesomeIcon icon={faMoon} /> Dark Mode
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
-          <div className="ms-3" onClick={toggleDarkMode} style={{ cursor: 'pointer' }}>
-            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} size="lg" />
-          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
