@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import './MyNavbar.css'; // Import custom CSS file
+import '../style/All.css'; // Import custom CSS file
 
 function MyNavbar() {
   const [darkMode, setDarkMode] = useState(false);
