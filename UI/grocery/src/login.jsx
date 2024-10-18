@@ -1,21 +1,22 @@
+import './login.css';
 
-import './login.css'
-
-function Login(){
-    return(
-
-        <div class = "container">
-            <div class = "container-header"> Login </div>
+function Login() {
+    return (
+        <div className="container">
+            <div className="container-header">Login</div>
             <hr />
-            <div class = "container-body">
-                <label htmlFor="email" id = "container-label"> Username/Email </label>
-                <input type="text" id = "container-input" placeholder="Example: jane@sample.com" />
-                <label htmlFor="password" id = "container-label"> Password </label>
-                <input type="password" id = "container-input" placeholder="Password" />
+            <div className="container-body">
+                <label htmlFor="email" className="container-label">Username/Email</label>
+                <input type="text" id="email" className="container-input" placeholder="Example: jane@sample.com" />
+                <label htmlFor="password" className="container-label">Password</label>
+                <input type="password" id="password" className="container-input" placeholder="Password" />
+                <button className="btn">Submit</button>
+            </div>
+            <div className="container-footer">
+                <p>Forgot password? <a href="#">Click here</a></p>
             </div>
         </div>
-
-    )
+    );
 }
 
 export default Login;

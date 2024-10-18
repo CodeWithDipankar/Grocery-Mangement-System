@@ -2,45 +2,93 @@ body {
     position: relative; 
     height: 100vh; 
     margin: 0; 
-}
-.container {
-    background-color: whitesmoke;
-    position: absolute; 
-    top: 50%;   
-    left: 50%; 
-    transform: translate(-50%, -50%); 
-    flex-direction: column; 
-    /* justify-content: center;  */
-    max-width: 50rem;
-    /* border: 1px solid black; */
-    padding: 1rem 2rem; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    border-radius: 2px;
-}
-
-hr{
-    width: 100%;
-}
-
-.container-header{
-    /* margin-top: rem; */
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.container-body{
-    margin-top: 3rem;
-}
-
-#container-label{
-    /* margin-top: 1rem; */
-}
-
-#container-input {
     display: flex;
-    margin-top: 10px; 
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #f8f9fa; /* Light background color */
+    font-family: 'Arial', sans-serif; /* Modern font */
+}
+
+.container {
+    background-color: white;
+    max-width: 400px; 
+    width: 100%; 
+    padding: 2rem; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    flex-direction: column; 
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+.container:hover {
+    transform: scale(1.02); /* Slight zoom on hover */
+}
+
+hr {
+    width: 100%;
+    margin: 10px 0;
+    border: 0;
+    height: 1px;
+    background-color: #dee2e6; /* Lighter divider */
+}
+
+.container-header {
+    text-align: center;
+    font-size: 1.8rem; /* Larger font size */
+    font-weight: bold;
+    color: #343a40; /* Darker text color */
+}
+
+.container-body {
+    margin-top: 1rem;
+}
+
+.container-label {
+    margin-top: 1rem; 
+    font-weight: bold; 
+    color: #495057; /* Darker label color */
+}
+
+.container-input {
     padding: 10px;
-    width: 20rem;
+    width: calc(100% - 22px); 
     margin-bottom: 1rem;
+    border: 1px solid #ced4da; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    transition: border-color 0.2s; /* Smooth border transition */
+}
+
+.container-input:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+}
+
+.btn {
+    background-color: #28a745; /* Green button */
+    color: white; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.2s; /* Smooth button transition */
+}
+
+.btn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.container-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.container-footer a {
+    color: #007bff; 
+    text-decoration: none; 
+}
+
+.container-footer a:hover {
+    text-decoration: underline; 
 }
