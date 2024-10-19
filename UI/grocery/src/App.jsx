@@ -7,6 +7,8 @@ import Login from './components/login';
 import Navbar from './components/navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 
+import './styles/custom.scss'; 
+
 function App() {
     return (
         <Router>
