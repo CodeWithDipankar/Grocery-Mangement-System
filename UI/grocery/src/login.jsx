@@ -7,10 +7,10 @@ function Login() {
             <hr class="divider"></hr>
             <div className="container-body">
                 <label htmlFor="email" className="container-label">Username</label>
-                <input type="text" id="email" className="container-input" placeholder="Example: jane@sample.com" />
+                <input type="text" id="email" className="container-input" placeholder="Example: jane@google.com" />
                 <label htmlFor="password" className="container-label">Password</label>
                 <input type="password" id="password" className="container-input" placeholder="Password" />
-                <button className="btn">Submit</button>
+                <div className="btn">Submit</div>
             </div>
             <hr class="divider"></hr>
             <div className="container-footer">

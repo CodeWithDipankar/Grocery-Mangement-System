@@ -7,7 +7,7 @@ body {
     align-items: center; 
     background-color: #86c848; 
     font-family: 'Arial', sans-serif; 
-    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-x: hidden;
 }
 
 .container {
@@ -33,7 +33,6 @@ body {
 }
 
 .divider {
-    margin-bottom: 1rem;
     width: calc(100% + 3.9rem);
     margin-left: -2rem;
     background-color: #ced4da;
@@ -41,7 +40,7 @@ body {
 
 .container-body {
     max-width: 350px;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .container-label {
@@ -51,7 +50,7 @@ body {
 }
 
 .container-input {
-    padding: 10px;
+    padding: 0.7rem;
     width: calc(100%); 
     margin-bottom: 1.5rem;
     margin-top: 0.5rem; 
@@ -67,26 +66,28 @@ body {
 }
 
 .btn {
-    margin-top: 1rem;
+    margin-top: 3rem;
     background-color: #007bff; 
     color: white; 
-    padding: 0.7rem 2rem; 
+    padding: 0.7rem 1rem; 
     border: none; 
     border-radius: 5px; 
     cursor: pointer;
-    transition: background-color 0.2s; 
-    margin: 1rem auto; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 2rem auto; 
     display: block; 
+    text-align: center; 
 }
 
 .btn:hover {
-    background-color: #b4b6b9;
+    background-color: #0056b3; 
+    transform: translateY(-3px); 
 }
 
 .container-footer {
     font-size: 0.8rem;
     text-align: center;
-    margin-top: 1rem;
+    margin-top: -0.5rem;
 }
 
 .container-footer a {
