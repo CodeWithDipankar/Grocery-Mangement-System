@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #333;
+    background-color: #8cc3ee;
     position: absolute;
     width: 100%;
     top: 0;
@@ -7,14 +7,14 @@
     display: flex;
     padding: 14px 20px;
     z-index: 999;
+    justify-content: flex-end; 
 }
 
 .navbar div {
-    color: white;
+    color: rgb(3, 4, 61);
     text-decoration: none;
     padding: 14px 20px;
     text-align: center;
-
 }
 
 .navbar div:hover {
