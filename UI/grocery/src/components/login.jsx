@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Tooltip } from 'bootstrap';
-import '../css/override.css'; // Make sure this file includes any necessary styles
 
 function Login({ isDarkMode }) {
   const [email, setEmail] = useState('');

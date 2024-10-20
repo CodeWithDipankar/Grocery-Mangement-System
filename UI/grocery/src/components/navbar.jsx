@@ -1,32 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from '../static/logo-grocery.png'; // Update the path to your logo image
-import { BsBell, BsMoon, BsSun, BsPerson } from "react-icons/bs"; // Import icons from react-icons
+import logo from '../static/logo-grocery.png'; 
+import { BsBell, BsSun, BsPerson } from "react-icons/bs";
+
 
 function Navbar() {
     const [navItems] = useState([
         { name: "Home", path: "/" },
         { name: "Login", path: "/login" },
         { name: "About", path: "/about" },
-        { name: "Categories", path: "/categories" }, // Single Categories page
+        { name: "Categories", path: "/categories" },
         { name: "Search", path: "/categories" },
     ]);
-    
-    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const [theme, setTheme] = useState('dark'); // Default to 'dark'
     const navigate = useNavigate();
 
-    const toggleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-        document.body.classList.toggle('bg-dark', !isDarkMode);
-        document.body.classList.toggle('text-white', !isDarkMode);
+    const applyTheme = (selectedTheme) => {
+        setTheme(selectedTheme);
+        document.body.classList.remove('bg-dark', 'bg-light', 'text-white', 'text-dark');
+
+        if (selectedTheme === 'dark') {
+            document.body.classList.add('bg-dark', 'text-white');
+        } else if (selectedTheme === 'light') {
+            document.body.classList.add('bg-light', 'text-dark');
+        } else if (selectedTheme === 'auto') {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(prefersDark ? 'dark' : 'light');
+        }
     };
 
+    const handleThemeChange = (selectedTheme) => {
+        if (selectedTheme === 'auto') {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            applyTheme(mediaQuery.matches ? 'dark' : 'light');
+
+            mediaQuery.addEventListener('change', e => {
+                applyTheme(e.matches ? 'dark' : 'light');
+            });
+        } else {
+            applyTheme(selectedTheme);
+        }
+    };
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        const initialTheme = mediaQuery.matches ? 'dark' : 'light';
+        applyTheme(initialTheme);
+    }, []);
+
     return (
-        <nav className={`navbar navbar-expand-lg ${isDarkMode ? 'navbar-dark' : 'navbar-light'}`} style={{ backgroundColor: isDarkMode ? '#343a40' : '#e9ecef' }}>
+        <nav className={`navbar navbar-expand-lg ${theme === 'dark' ? 'navbar-dark' : 'navbar-light'}`} style={{ backgroundColor: theme === 'dark' ? '#495057' : '#e9ecef' }}>
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
-                    <img src={logo} alt="Brand Logo" style={{ width: "40px", marginRight: "8px" }} />
+                    <img src={logo} alt="Brand Logo" style={{ width: "35px", marginRight: "8px" }} />
                     Grocery Shop
                 </a>
                 
@@ -41,6 +69,7 @@ function Navbar() {
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
+                
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav">
                         {navItems.map((item, index) => (
@@ -55,21 +84,33 @@ function Navbar() {
                                 </a>
                             </li>
                         ))}
-                    <div className="vr mx-1"></div> 
-                    <li className="nav-item">
+                        <div className="vr mx-1 vr-bar" ></div> 
+                        <li className="nav-item">
                             <button className="nav-link" aria-label="Notifications">
                                 <BsBell />
-                                {/* Uncomment the next line if you want to display notification count */}
-                                <span className="badge bg-danger top-0">3</span>
+                                <span className="badge bg-danger">3</span>
                             </button>
                         </li>
-                    <div className="vr mx-1"></div> 
-
-                    <button className="nav-link" onClick={toggleDarkMode} aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}>
-                        {isDarkMode ? <BsSun /> : <BsMoon />}
-                    </button>
-                    <div className="vr mx-1"></div> 
-
+                        <div className="vr mx-1 vr-bar" ></div> 
+                        <li className="nav-item dropdown">
+                            <a
+                                className="nav-link dropdown-toggle"
+                                href="#"
+                                id="themeDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                aria-label="Theme menu"
+                            >
+                                <BsSun />
+                            </a>
+                            <ul className={`dropdown-menu dropdown-menu-end ${theme === 'dark' ? 'bg-secondary text-light' : 'bg-light text-dark'}`} aria-labelledby="themeDropdown">
+                                <li><a className="dropdown-item" onClick={() => handleThemeChange('dark')}>Dark</a></li>
+                                <li><a className="dropdown-item" onClick={() => handleThemeChange('light')}>Light</a></li>
+                                <li><a className="dropdown-item" onClick={() => handleThemeChange('auto')}>System Default</a></li>
+                            </ul>
+                        </li>
+                        <div className="vr mx-1 vr-bar" ></div> 
                         <li className="nav-item dropdown">
                             <a
                                 className="nav-link dropdown-toggle"
@@ -82,15 +123,13 @@ function Navbar() {
                             >
                                 <BsPerson />
                             </a>
-                            <ul className="dropdown-menu" aria-labelledby="profileDropdown">
+                            <ul className={`dropdown-menu dropdown-menu-end ${theme === 'dark' ? 'bg-secondary text-light' : 'bg-light text-dark'}`} aria-labelledby="profileDropdown">
                                 <li><a className="dropdown-item" href="#">My Account</a></li>
                                 <li><a className="dropdown-item" href="#">Settings</a></li>
                                 <li><a className="dropdown-item" href="#">Logout</a></li>
                             </ul>
                         </li>
-                        
                     </ul>
-                    
                 </div>
             </div>
         </nav>

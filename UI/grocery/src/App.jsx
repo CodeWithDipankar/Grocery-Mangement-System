@@ -6,8 +6,8 @@ import About from './components/About';
 import Login from './components/login';
 import Navbar from './components/navbar'
 import 'bootstrap/dist/css/bootstrap.min.css'; 
-
-import './styles/custom.scss'; 
+import './style/saas/custom.scss'; 
+import './style/css/override.css';
 
 function App() {
     return (
