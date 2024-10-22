@@ -9,7 +9,7 @@ class SQL:
     DATABASENAME:str = os.getenv('DATABASENAME')
 
     def __init__(self):
-        __conn__ = None
+        __conn__ = self.SqlConn()
 
     def SqlConn(self):
         if __conn__ is None:
@@ -17,6 +17,7 @@ class SQL:
         return __conn__
 
     def SqlInsertion(self, query):
+        
         pass
 
     def SqlUpdation(self, query):
