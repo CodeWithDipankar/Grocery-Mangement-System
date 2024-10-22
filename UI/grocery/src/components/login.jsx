@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Tooltip } from 'bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function Login({ isDarkMode }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -22,6 +24,9 @@ function Login({ isDarkMode }) {
     setError('');
     // Handle login logic here
   };
+  const forgotPasswordClick = () => {
+    console.log("clicked on forgot password")
+  }
 
   return (
     <div className={`container d-flex justify-content-center align-items-center vh-100`}>
@@ -73,7 +78,10 @@ function Login({ isDarkMode }) {
 
           <hr className="full-width-divider mt-4" />
           <div className="text-center fs-6 footer">
-            <p>Forgot password? <a href="#">Click here</a></p>
+            <p className = 'forgot-p'>Forgot password?<span onClick={() => navigate('/forgot_password') } style={{ cursor: 'pointer', color: 'blue', marginBottom: '10px' }}>
+              Click here
+            </span>
+            </p>
           </div>
         </div>
       </div>
