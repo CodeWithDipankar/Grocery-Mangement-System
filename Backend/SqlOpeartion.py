@@ -1,5 +1,6 @@
 import os
 import pymysql
+# import pandas as  pd
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -21,7 +22,6 @@ class SQL:
         return self.__conn__
 
     def SqlInsertion(self, query):
-        
         pass
 
     def SqlUpdation(self, query):
@@ -41,6 +41,7 @@ class SQL:
         for id, item, itemUnit, price in cursor:
             eachItem = { "Sl No.": id, "Product Name": item, "Unit":itemUnit, "Price": price}
             data.append(eachItem)
+        # print(pd.DataFrame(data))
         return data
             
 a = SQL()
