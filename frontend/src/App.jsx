@@ -1,9 +1,23 @@
+// App.jsx
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar";
+// import Home from "./pages/Home";
+// import About from "./pages/About";
+// import Login from "./pages/Login";
+// import Contact from "./pages/Contact";
 
-export default function App() {
-  return (
-    <h1 className="text-2xl font-bold text-center font-mono">
-      Hello world!
-      I am developing a New frontend Using Tailwind CSS which is utility framework.
-    </h1>
-  )
+function App() {
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                {/* <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/contact" element={<Contact />} /> */}
+            </Routes>
+        </Router>
+    );
 }
+
+export default App;
