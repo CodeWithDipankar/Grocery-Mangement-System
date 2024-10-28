@@ -29,7 +29,7 @@ function Login({ isDarkMode }) {
   }
 
   return (
-    <div className="container d-flex justify-content-center align-items-center vh-100">
+    <div className="container d-flex justify-content-center align-items-center vh-93">
       <div className={`card shadow-sm ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}`} style={{ maxWidth: "400px", width: "100%" }}>
         <div className="card-body px-5">
           <h2 className="card-title text-center mt-1 fw-normal">Login</h2>
