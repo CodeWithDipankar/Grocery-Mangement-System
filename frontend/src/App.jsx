@@ -5,7 +5,7 @@ import Login from "./components/login";
 function App() {
     return (
         // <div className="bg-gradient-to-r from-cyan-100 to-blue-100 min-h-screen">
-         <div className="bg-gradient-to-r min-h-screen">
+         <div className="min-h-screen bg-gradient-to-r from-blue-50 to-cyan-100">
             <Router>
                 <Navbar />
                 <Routes>
