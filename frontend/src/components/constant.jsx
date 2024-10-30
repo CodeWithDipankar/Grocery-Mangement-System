@@ -1,3 +1,3 @@
 
-const navbarLi = ["Home", "About", "Services", "Contact", "Login"];
+const navbarLi = ["Home", "About", "Services", "Contact"];
 export default navbarLi;
