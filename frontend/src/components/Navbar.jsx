@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../img/logo-grocery.jpg";
 import navbarLi from "./constant";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     return (
         <div className="fixed top-0 left-0 w-full backdrop-blur-lg bg-transparent p-2 flex items-center border-b border-slate-200 z-50">
@@ -32,7 +34,14 @@ export default function Navbar() {
                                 key={index}
                                 className="text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full hover:bg-slate-700 hover:text-white"
                             >
-                                <Link to={`/${item.toLowerCase()}`} onClick={() => setIsOpen(false)}>{item}</Link>
+                                <div onClick={() => {
+                                    navigate(item.path);
+                                    setIsOpen(false);
+                                }}
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    {item.Name}
+                                </div>
                             </li>
                         ))}
                     </ul>
