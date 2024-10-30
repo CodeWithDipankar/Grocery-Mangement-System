@@ -3,6 +3,7 @@ import Navbar from "./components/navbar";
 import Login from "./components/login";
 import ForgotPassword from "./components/forgotpassword";
 import OtpValidate from "./components/otpvalidate";
+import ResetPassword from "./components/resetpassword";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/forgotpassword" element={<ForgotPassword />} />
                     <Route path="/otpvalidate" element={<OtpValidate />} />
+                    <Route path="/resetpassword" element={<ResetPassword />} />
                     {/* <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} /> */}
