@@ -4,6 +4,8 @@ import Login from "./components/login";
 import ForgotPassword from "./components/forgotpassword";
 import OtpValidate from "./components/otpvalidate";
 import Home from "../src/components/home"
+import ResetPassword from "./components/resetpassword";
+
 function App() {
     return (
          <div className="min-h-screen bg-gradient-to-r from-blue-50 to-cyan-100">
@@ -14,6 +16,7 @@ function App() {
                     <Route path="/forgotpassword" element={<ForgotPassword />} />
                     <Route path="/otpvalidate" element={<OtpValidate />} />
                     <Route path="/" element={<Home />} />
+                    <Route path="/resetpassword" element={<ResetPassword />} />
                     {/* <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} /> */}

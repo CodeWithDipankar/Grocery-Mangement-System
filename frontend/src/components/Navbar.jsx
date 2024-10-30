@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import logo from "../img/logo-grocery.jpg";
 import navbarLi from "./constant";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
 
     return (
@@ -15,7 +19,7 @@ export default function Navbar() {
                     <img className="h-8 w-8 rounded" src={logo} alt="Logo" />
                     <span className="w-full text-sm font-semibold ml-2 text-slate-700">Fresh Grocery</span>
                 </div>
-                
+
                 {/* Hamburger Menu Button for Mobile */}
                 <button
                     className="block lg:hidden text-slate-700 hover:text-slate-900 focus:outline-none"
@@ -33,6 +37,7 @@ export default function Navbar() {
                             <li
                                 key={index}
                                 className="text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full hover:bg-slate-700 hover:text-white"
+                                onClick={() => navigate(`/${item.toLowerCase()}`)}
                             >
                                 <div onClick={() => {
                                     navigate(item.path);
@@ -42,8 +47,29 @@ export default function Navbar() {
                                 >
                                     {item.Name}
                                 </div>
+                                {item}
+
                             </li>
                         ))}
+                        <li
+                            className="text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full bg-white hover:bg-slate-700 hover:text-white relative border-inherit"
+                            onMouseEnter={() => setIsDropdownOpen(true)}
+                            onMouseLeave={() => setIsDropdownOpen(false)}
+                        >
+                            <div className="flex items-center space-x-1 divide-x divide-black hover:divide-white" onClick={() => navigate("/login")}>
+                                <span className="mr-1">Login</span>
+                                <FontAwesomeIcon className=" p-1" icon={faChevronDown} />
+                            </div>
+
+                            {/* Dropdown Menu */}
+                            {isDropdownOpen && (
+                                <div className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md overflow-hidden">
+                                    <div onClick={() => navigate("/profile")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Profile</div>
+                                    <div onClick={() => navigate("/settings")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Settings</div>
+                                    <div onClick={() => navigate("/logout")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Logout</div>
+                                </div>
+                            )}
+                        </li>
                     </ul>
                 </div>
             </div>

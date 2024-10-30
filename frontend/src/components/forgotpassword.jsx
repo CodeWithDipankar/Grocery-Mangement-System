@@ -24,7 +24,7 @@ export default function ForgotPassword() {
 
                 <div>
                     <div className="pb-6 flex justify-center">
-                        <button className=" w-36 py-2 rounded-full font-light text-white  bg-slate-600 hover:bg-slate-800 shadow-md transition duration-300 border-slate-950" onClick={navigate("/otpvalidate")}>
+                        <button className=" w-36 py-2 rounded-full font-light text-white  bg-slate-600 hover:bg-slate-800 shadow-md transition duration-300 border-slate-950" onClick={()=> navigate("/otpvalidate")}>
                             Generate OTP
                         </button>
                     </div>
