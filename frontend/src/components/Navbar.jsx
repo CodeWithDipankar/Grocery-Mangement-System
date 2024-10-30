@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logo from "../img/logo-grocery.jpg";
 import navbarLi from "./constant";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -37,7 +39,16 @@ export default function Navbar() {
                                 className="text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full hover:bg-slate-700 hover:text-white"
                                 onClick={() => navigate(`/${item.toLowerCase()}`)}
                             >
+                                <div onClick={() => {
+                                    navigate(item.path);
+                                    setIsOpen(false);
+                                }}
+                                    style={{ cursor: 'pointer' }}
+                                >
+                                    {item.Name}
+                                </div>
                                 {item}
+
                             </li>
                         ))}
                         <li
