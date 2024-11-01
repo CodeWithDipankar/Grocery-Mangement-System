@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "../img/logo-grocery.jpg";
 import navbarLi from "./constant";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,9 +6,21 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
+    const [isDropdownOpen,setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    // Close dropdown if clicked outside
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     return (
         <div className="fixed top-0 left-0 w-full backdrop-blur-lg bg-transparent p-2 flex items-center border-b border-slate-200 z-50">
@@ -41,27 +53,28 @@ export default function Navbar() {
                             </li>
                         ))}
                         <li
-    className="relative text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full bg-white hover:bg-slate-700 hover:text-white"
-    onMouseEnter={() => setIsDropdownOpen(true)}
-    onMouseLeave={() => setIsDropdownOpen(false)}
->
-    <div className="flex items-center space-x-1">
-        <span>Login</span>
-        <FontAwesomeIcon icon={faChevronDown} />
-    </div>
+                            className="relative text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full bg-white hover:bg-slate-700 hover:text-white"
+                            onClick={()=> setIsDropdownOpen(true)}
+                            ref={dropdownRef}
+                        >
+                            <div className="flex items-center space-x-1">
+                                <span>Login</span>
+                                <FontAwesomeIcon icon={faChevronDown} />
+                            </div>
 
-    {/* Dropdown Menu */}
-    {isDropdownOpen && (
-        <div
-            className="absolute top-full mt-1 right-0 bg-slate-700 shadow-lg rounded-md overflow-hidden w-32"
-            onMouseEnter={() => setIsDropdownOpen(true)}
-            onMouseLeave={() => setIsDropdownOpen(false)}
-        >
-            <div onClick={() => navigate("/user-login")} className="block px-4 py-2 text-sm text-slate-400 hover:bg-slate-100 hover:text-black cursor-pointer">User Login</div>
-            <div onClick={() => navigate("/admin-login")} className="block px-4 py-2 text-sm text-slate-400 hover:bg-slate-100 hover:text-black cursor-pointer">Admin Login</div>
-        </div>
-    )}
-</li>
+                            {/* Dropdown Menu */}
+                            {isDropdownOpen && (
+                                <div
+                                    className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md overflow-hidden w-32"
+                                >
+                                    <div className="divide-y-2">
+                                    <div onClick={() => navigate("/user-login")} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">User Login</div>
+                                    <div onClick={() => navigate("/admin-login")} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">Admin Login</div>
+                                    </div>
+
+                                </div>
+                            )}
+                        </li>
 
                     </ul>
                 </div>
