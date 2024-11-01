@@ -41,24 +41,28 @@ export default function Navbar() {
                             </li>
                         ))}
                         <li
-                            className="text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full bg-white hover:bg-slate-700 hover:text-white relative border-inherit"
-                            onMouseEnter={() => setIsDropdownOpen(true)}
-                            onMouseLeave={() => setIsDropdownOpen(false)}
-                        >
-                            <div className="flex items-center space-x-1 divide-x divide-black hover:divide-white" onClick={() => navigate("/login")}>
-                                <span className="mr-1">Login</span>
-                                <FontAwesomeIcon className=" p-1" icon={faChevronDown} />
-                            </div>
+    className="relative text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full bg-white hover:bg-slate-700 hover:text-white"
+    onMouseEnter={() => setIsDropdownOpen(true)}
+    onMouseLeave={() => setIsDropdownOpen(false)}
+>
+    <div className="flex items-center space-x-1">
+        <span>Login</span>
+        <FontAwesomeIcon icon={faChevronDown} />
+    </div>
 
-                            {/* Dropdown Menu */}
-                            {isDropdownOpen && (
-                                <div className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md overflow-hidden">
-                                    <div onClick={() => navigate("/profile")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Profile</div>
-                                    <div onClick={() => navigate("/settings")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Settings</div>
-                                    <div onClick={() => navigate("/logout")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Logout</div>
-                                </div>
-                            )}
-                        </li>
+    {/* Dropdown Menu */}
+    {isDropdownOpen && (
+        <div
+            className="absolute top-full mt-1 right-0 bg-slate-700 shadow-lg rounded-md overflow-hidden w-32"
+            onMouseEnter={() => setIsDropdownOpen(true)}
+            onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+            <div onClick={() => navigate("/user-login")} className="block px-4 py-2 text-sm text-slate-400 hover:bg-slate-100 hover:text-black cursor-pointer">User Login</div>
+            <div onClick={() => navigate("/admin-login")} className="block px-4 py-2 text-sm text-slate-400 hover:bg-slate-100 hover:text-black cursor-pointer">Admin Login</div>
+        </div>
+    )}
+</li>
+
                     </ul>
                 </div>
             </div>
