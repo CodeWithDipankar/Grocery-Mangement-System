@@ -2,6 +2,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { showToast } from "./toastservice";
+import { serverLink } from "./constant";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -13,6 +15,7 @@ export default function Login() {
 
     const [password, setPassword] = useState("");
     const [isPassValid, setIsPassValid] = useState(null);
+    const [errorMsg,setErrorMessage] = useState("");
 
     // Email validation function
     const handleEmailValidation = (e) => {
@@ -36,15 +39,34 @@ export default function Login() {
     };
 
     // Form submission handling
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!isEmailValid || !isPassValid) {
-            // Prevent submission if any field is invalid
-            return;
-        }
+        if (!isEmailValid || !isPassValid) return;
 
-        // Handle valid submission (e.g., navigate or API call)
-        console.log("Form submitted successfully");
+        try {
+            const response = await fetch(`${serverLink}/user_check`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (data.status === "success") {
+                console.log("Login successful");
+                showToast("success","Login Success.")
+                navigate("/otpvalidate");  // Redirect to a different page after login
+            } else {
+                setErrorMessage(data.message);
+                showToast("error","Login Faild, password or email incorrect.")
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            setErrorMessage("An error occurred. Please try again.");
+            showToast("error","An error occurred. Please try again.");
+        }
     };
 
     return (

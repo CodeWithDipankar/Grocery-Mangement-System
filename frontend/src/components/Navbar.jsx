@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import logo from "../img/logo-grocery.jpg";
-import navbarLi from "./constant";
+import { navbarLi } from "./constant";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";

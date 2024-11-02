@@ -44,5 +44,5 @@ class SQL:
         # print(pd.DataFrame(data))
         return data
             
-a = SQL()
-print(a.fetchAllProducts())
+# a = SQL()
+# print(a.fetchAllProducts())
