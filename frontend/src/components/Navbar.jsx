@@ -27,7 +27,7 @@ export default function Navbar() {
             <div className="flex items-center justify-between w-full px-4">
                 <div className="flex items-center">
                     <img className="h-8 w-8 rounded" src={logo} alt="Logo" />
-                    <span className="w-full text-sm font-semibold ml-2 text-slate-700">Fresh Grocery</span>
+                    <span className="w-32 text-sm font-semibold ml-2 text-slate-700">Fresh Grocery</span>
                 </div>
 
                 {/* Hamburger Menu Button for Mobile */}
@@ -68,8 +68,8 @@ export default function Navbar() {
                                     className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md overflow-hidden w-32"
                                 >
                                     <div className="divide-y-2">
-                                    <div onClick={() => navigate("/user-login")} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">User Login</div>
-                                    <div onClick={() => navigate("/admin-login")} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">Admin Login</div>
+                                    <div onClick={() => navigate("/login", {state : { logintype : "Login" }})} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">User Login</div>
+                                    <div onClick={() => navigate("/login", {state : { logintype : "Admin Login" }})} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">Admin Login</div>
                                     </div>
 
                                 </div>
