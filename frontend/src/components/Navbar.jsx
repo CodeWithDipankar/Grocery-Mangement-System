@@ -1,21 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import logo from "../img/logo-grocery.jpg";
-import navbarLi from "./constant";
+import { navbarLi } from "./constant";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
+    const [isDropdownOpen,setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+
+    // Close dropdown if clicked outside
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
 
     return (
         <div className="fixed top-0 left-0 w-full backdrop-blur-lg bg-transparent p-2 flex items-center border-b border-slate-200 z-50">
             <div className="flex items-center justify-between w-full px-4">
                 <div className="flex items-center">
                     <img className="h-8 w-8 rounded" src={logo} alt="Logo" />
-                    <span className="w-full text-sm font-semibold ml-2 text-slate-700">Fresh Grocery</span>
+                    <span className="w-32 text-sm font-semibold ml-2 text-slate-700">Fresh Grocery</span>
                 </div>
 
                 {/* Hamburger Menu Button for Mobile */}
@@ -41,24 +53,29 @@ export default function Navbar() {
                             </li>
                         ))}
                         <li
-                            className="text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full bg-white hover:bg-slate-700 hover:text-white relative border-inherit"
-                            onMouseEnter={() => setIsDropdownOpen(true)}
-                            onMouseLeave={() => setIsDropdownOpen(false)}
+                            className="relative text-sm font-medium cursor-pointer px-3 py-1 transition-all duration-200 ease-in-out rounded-full bg-white hover:bg-slate-700 hover:text-white"
+                            onClick={()=> setIsDropdownOpen(true)}
+                            ref={dropdownRef}
                         >
-                            <div className="flex items-center space-x-1 divide-x divide-black hover:divide-white" onClick={() => navigate("/login")}>
-                                <span className="mr-1">Login</span>
-                                <FontAwesomeIcon className=" p-1" icon={faChevronDown} />
+                            <div className="flex items-center space-x-1">
+                                <span>Login</span>
+                                <FontAwesomeIcon icon={faChevronDown} />
                             </div>
 
                             {/* Dropdown Menu */}
                             {isDropdownOpen && (
-                                <div className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md overflow-hidden">
-                                    <div onClick={() => navigate("/profile")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Profile</div>
-                                    <div onClick={() => navigate("/settings")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Settings</div>
-                                    <div onClick={() => navigate("/logout")} className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 cursor-pointer">Logout</div>
+                                <div
+                                    className="absolute top-full mt-1 right-0 bg-white shadow-lg rounded-md overflow-hidden w-32"
+                                >
+                                    <div className="divide-y-2">
+                                    <div onClick={() => navigate("/login", {state : { logintype : "Login" }})} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">User Login</div>
+                                    <div onClick={() => navigate("/login", {state : { logintype : "Admin Login" }})} className="block px-4 py-2 text-sm text-black hover:bg-slate-400 hover:text-black cursor-pointer">Admin Login</div>
+                                    </div>
+
                                 </div>
                             )}
                         </li>
+
                     </ul>
                 </div>
             </div>
