@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/NavigationBar";
+import Navbar from "./components/navbar";
 import Login from "./components/login";
 import ForgotPassword from "./components/forgotpassword";
 import OtpValidate from "./components/otpvalidate";
